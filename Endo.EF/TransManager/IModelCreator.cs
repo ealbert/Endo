@@ -1,4 +1,4 @@
-namespace Endo.Domain.TransManager
+namespace Endo.EF.TransManager
 {
   using System.Data.Entity;
 

@@ -38,7 +38,7 @@ namespace Endo.Web.Filters
             }
           }
 
-          WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+          WebSecurity.InitializeDatabaseConnection("SecurityDb", "UserProfile", "UserId", "UserName", autoCreateTables: true);
         }
         catch (Exception ex)
         {

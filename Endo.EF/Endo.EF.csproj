@@ -49,10 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbContext\EndoDbContext.cs" />
+    <Compile Include="Mappings\ModelCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\RepositoryEF.cs" />
     <Compile Include="Repository\RepositoryLocatorEF.cs" />
     <Compile Include="TransManager\DbContextExtensions.cs" />
+    <Compile Include="TransManager\IModelCreator.cs" />
     <Compile Include="TransManager\TransManagerEF.cs" />
     <Compile Include="TransManager\TransManagerFactoryEF.cs" />
   </ItemGroup>

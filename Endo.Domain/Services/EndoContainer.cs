@@ -4,7 +4,7 @@
   /// Provides access to services that should be accessible
   /// across all layers in the Domain project
   /// </summary>
-  public class Container
+  public class EndoContainer
   {
     /// <summary>
     /// The global context exposes services that provide functionality
