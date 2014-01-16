@@ -9,6 +9,7 @@ namespace Endo.Web.Controllers
   using BusinessProcessors;
   using Models;
 
+  [Authorize]
   public class PatientController : Controller
   {
 
