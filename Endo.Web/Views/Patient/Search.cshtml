@@ -1,0 +1,26 @@
+﻿@model Endo.Web.Models.PatientSearchModel
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+@{
+    Html.RenderPartial("SearchForm", Model.PatientModel);
+}
+@if (Model.SearchRecords != null)
+{
+    <table>
+        <tr>
+            <th>MRN</th>
+            <th>Alias</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+        </tr>
+    
+    @foreach (var patient in Model.SearchRecords)
+    {
+        Html.RenderPartial("SearchResult", patient);
+    }
+    </table>
+}

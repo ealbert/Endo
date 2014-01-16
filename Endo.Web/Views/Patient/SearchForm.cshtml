@@ -1,0 +1,42 @@
+﻿@model Endo.Web.Models.PatientModel
+@using Endo.Web
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Patient</legend>
+        @Html.HiddenFor(m => m.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Mrn)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.Mrn)
+        </div>
+            
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Alias)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.Alias)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Dob)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => m.Dob)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(m => m.Gender)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.Gender)
+            @Html.ValidationMessageFor(m => m.Gender)
+        </div>
+
+        <input type="submit" value="Submit"/>
+    </fieldset>
+}
+

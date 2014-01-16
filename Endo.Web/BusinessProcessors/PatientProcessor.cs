@@ -24,5 +24,20 @@ namespace Endo.Web.BusinessProcessors
       var instance = Patient.Create(locator, operation);
       return Mapper.Map<Patient, PatientModel>(instance);
     }
+
+    public List<PatientModel> SearchForPatient(PatientModel model)
+    {
+      return ExecuteCommand(locator => SearchForPatientImpl(locator, model));
+    }
+
+    private List<PatientModel> SearchForPatientImpl(IRepositoryLocator locator, PatientModel model)
+    {
+      var query = locator.FindAll<Patient>();
+      if (model.Gender != Gender.Unknown) query = query.Where(p => p.Gender == model.Gender);
+      if (!string.IsNullOrEmpty(model.Alias)) query = query.Where(p => p.Alias.Contains(model.Alias));
+      if (model.Dob.HasValue) query = query.Where(p => p.Dob == model.Dob);
+      if (!string.IsNullOrEmpty(model.Mrn)) query = query.Where(p => p.Mrn.Contains(model.Mrn));
+      return Mapper.Map<List<Patient>, List<PatientModel>>(query.ToList());
+    }
   }
 }

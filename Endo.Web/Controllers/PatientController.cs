@@ -38,5 +38,23 @@ namespace Endo.Web.Controllers
       return View(model);
     }
 
+    [HttpGet]
+    public ActionResult Search()
+    {
+      return View(new PatientSearchModel{PatientModel = new PatientModel()});
+    }
+
+    [HttpPost]
+    public ActionResult Search(PatientModel model)
+    {
+      if (model == null)
+      {
+        return View(new PatientSearchModel{PatientModel = new PatientModel()});
+      }
+
+      var results  = _patientProcessor.SearchForPatient(model);
+      return View(new PatientSearchModel {PatientModel = model, SearchRecords = results});
+    }
+
   }
 }
