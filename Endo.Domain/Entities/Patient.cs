@@ -16,7 +16,7 @@ namespace Endo.Domain.Entities
 
     protected Patient(){}
 
-    public static Patient Create(IRepositoryLocator locator, PatientOperation operation)
+    public static Patient Create(IRepositoryLocator locator, PatientOperation operation, string usrName)
     {
       var instance = Mapper.Map<PatientOperation, Patient>(operation);
       return locator.Save(instance);
@@ -24,11 +24,14 @@ namespace Endo.Domain.Entities
 
     #endregion
     #region Persisted Properties
-    
-    public string Mrn { get; protected set; }
-    public DateTime Dob { get; protected set; }
-    public string Alias { get; protected set; }
-    public Gender Gender { get; protected set; }
+
+    public string Mrn { get; private set; }
+    public DateTime Dob { get; private set; }
+    public string Alias { get; private set; }
+    public Gender Gender { get; private set; }
+
+    public DateTime FirstVisitDate { get; private set; }
+    public string Comment { get; private set; }
 
     #endregion
     #region EF Model

@@ -54,10 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Diagnosis.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\Gender.cs" />
     <Compile Include="Entities\Patient.cs" />
     <Compile Include="Entities\PatientRecord.cs" />
+    <Compile Include="Entities\SubDiagnosis.cs" />
     <Compile Include="Mappings\OperationToEntity.cs" />
     <Compile Include="Operations\PatientOperation.cs" />
     <Compile Include="Operations\PatientRecords.cs" />

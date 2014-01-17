@@ -14,6 +14,8 @@ namespace Endo.Domain.Operations
     public string Mrn { get; set; }
     public DateTime Dob { get; set; }
     public string Alias { get; set; }
-    public Gender Gender { get; set; }
+    public Gender Gender { get; set; }    
+    public DateTime FirstVisitDate { get; private set; }
+    public string Comment { get; private set; }
   }
 }

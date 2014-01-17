@@ -5,6 +5,7 @@ using System.Web;
 namespace Endo.Web.BusinessProcessors
 {
   using System.ComponentModel;
+  using System.Security.Principal;
   using AutoMapper;
   using Domain.Entities;
   using Domain.Operations;
@@ -13,15 +14,16 @@ namespace Endo.Web.BusinessProcessors
 
   public class PatientProcessor : ProcessorBase
   {
-    public PatientModel CreatePatient(PatientModel model)
+    public PatientModel CreatePatient(PatientModel model, IIdentity identity)
     {
-      return ExecuteCommand(locator => CreatePatientImpl(locator, model));
+      return ExecuteCommand(locator => CreatePatientImpl(locator, model, identity));
     }
 
-    private PatientModel CreatePatientImpl(IRepositoryLocator locator, PatientModel model)
+    private PatientModel CreatePatientImpl(IRepositoryLocator locator, PatientModel model, IIdentity identity)
     {
       var operation = Mapper.Map<PatientModel, PatientOperation>(model);
-      var instance = Patient.Create(locator, operation);
+      var usrName = identity != null ? identity.Name : "unknown";
+      var instance = Patient.Create(locator, operation, usrName);
       return Mapper.Map<Patient, PatientModel>(instance);
     }
 

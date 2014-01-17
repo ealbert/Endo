@@ -17,7 +17,7 @@ namespace Endo.EF.DbContext
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
       base.OnModelCreating(modelBuilder);
-      ModelCreator.OnModelCreating(modelBuilder);
-    }
+      ModelCreator.OnModelCreating(modelBuilder);      
+    }    
   }
 }

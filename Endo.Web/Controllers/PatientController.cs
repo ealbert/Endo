@@ -32,7 +32,7 @@ namespace Endo.Web.Controllers
     {
       if (ModelState.IsValid)
       {
-        _patientProcessor.CreatePatient(model);
+        _patientProcessor.CreatePatient(model, User.Identity);
         return  RedirectToAction( "Index", "Home");
       }
       return View(model);

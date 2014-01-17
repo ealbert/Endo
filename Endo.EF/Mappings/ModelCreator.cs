@@ -19,7 +19,8 @@ namespace Endo.EF.Mappings
     {
       modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
       modelBuilder.Configurations
-                  .Add(new Patient.Mapping());
+                  .Add(new Patient.Mapping())
+                  .Add(new Diagnosis.Mapping());
 
     }
 
